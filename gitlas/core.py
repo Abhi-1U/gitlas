@@ -7,8 +7,8 @@
  Author      : Abhi-1U <https://github.com/Abhi-1U> \n
  Description : A core library of gitlas\n
  Encoding    : UTF-8\n
- Version     : 0.1.02\n
- Build       : 0.1.02/02-07-2020\n
+ Version     : 0.1.03\n
+ Build       : 0.1.03/02-07-2020\n
 
 """
 
@@ -216,7 +216,7 @@ class Log:
     # * These Methods in this block manage the print statement and print 
     # * something about the source of Log object and its type.
     def __str__(self):
-        return "Log Object for file:"+self.filename+"of Type:"+self.type
+        return "Log Object for file: "+self.filename+" of Type: "+self.type
 
     def __repr__(self):
         pass
@@ -245,6 +245,7 @@ class Log:
     def daywiseStatistics(self,dayname):
 
         """
+        dayname should be shorthand string of the day eg.("Mon") 
         This one is an interesting Statistics set where i can select a specific day of
          the week and generate all counts of commits/merges throughout the entireity of the log.
         """
@@ -291,9 +292,12 @@ class Log:
     def specificMonthlyStatistics(self,month,year):
 
         """
+        Month name should be a shorthand name as eg.("Jan")
         Provides commit/merge counts of a specific month of a year.
         """
 
+        if(not isinstance(year,str)):
+            year=str(year)
         commitcount = 0
         mergerscount = 0
         for i in self.commits:
@@ -321,6 +325,8 @@ class Log:
         also Highlights the active months and total Counts.
         """
 
+        if(not isinstance(year,str)):
+            year=str(year)
         commitcount = 0
         mergerscount = 0
         monthlycommitreport={}
@@ -502,4 +508,3 @@ def AnalyzeDataOverall(logobject,*args):
 #   / /_/ / / /_/ /___/ /_/ (__  ) 
 #   \____/_/\__/_____/\__,_/____/  
 # *---------------------------------------------------------------------------*
-

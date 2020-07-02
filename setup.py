@@ -7,7 +7,7 @@ with open("README.md", "r") as fh:
 # *---------------------------------------------------------------------------*
 setuptools.setup(
     name="gitlas",  
-    version=" 0.1.02",
+    version=" 0.1.03",
     author="Abhi-1U",
     author_email="PerricoQ@outlook.com",
     description="A minimalist git log Statistics library",
@@ -16,6 +16,7 @@ setuptools.setup(
     url="https://github.com/Abhi-1U/gitlas",
     packages=setuptools.find_packages(),
     classifiers=[
+        "Topic :: Scientific/Engineering :: Information Analysis",
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
