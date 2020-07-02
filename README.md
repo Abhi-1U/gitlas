@@ -36,14 +36,3 @@ or pip3 in some systems
 ```
 $ pip3 install gitlas
 ```
-## Bugs and Inconsistencies
-As a developer, i understand the needs of another developer; however there are always certain situations for which you might have to fine tune the source code to get the library working with your scenario.
-If you find bugs report them  [here](https://github.com/Abhi-1U/GitLas/issues) and i will fix them ASAP if possible.
-
-## Contributions 
-If you want to contribute by adding or extending the functionality of GitLas then you can issue a pull request.
-
-Do note that :   
-1. code must be well commented.  
-2. the structure of code should remain consistent.  
-3. docstrings are a must with every change.  
