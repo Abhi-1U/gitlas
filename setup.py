@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 # *---------------------------------------------------------------------------*
 setuptools.setup(
-    name="gitlas-YOUR-USERNAME-HERE",  # Replace with your own username
+    name="gitlas",  
     version=" 0.1.02",
     author="Abhi-1U",
     author_email="PerricoQ@outlook.com",

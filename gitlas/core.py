@@ -502,6 +502,4 @@ def AnalyzeDataOverall(logobject,*args):
 #   / /_/ / / /_/ /___/ /_/ (__  ) 
 #   \____/_/\__/_____/\__,_/____/  
 # *---------------------------------------------------------------------------*
-                            
-s=Log("gitlog.txt","Git")
-JSONExport(AnalyzeDataOverall(s),"Gitlas.json")
+
