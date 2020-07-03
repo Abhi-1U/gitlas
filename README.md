@@ -1,4 +1,4 @@
-# GitLas :Git Log Statistics 
+# GitLas :Git Log Statistics ![](https://travis-ci.org/Abhi-1U/gitlas.svg?branch=master)
 The minimalist Git Log Statistics library
 
 ## Meta Data of Git
