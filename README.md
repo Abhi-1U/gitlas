@@ -1,4 +1,4 @@
-# GitLas :Git Log Statistics ![](https://travis-ci.org/Abhi-1U/gitlas.svg?branch=master)
+# GitLas :Git Log Statistics [![Build Status](https://travis-ci.org/Abhi-1U/gitlas.svg?branch=master)](https://travis-ci.org/Abhi-1U/gitlas) [![PyPI version](https://badge.fury.io/py/gitlas.svg)](https://badge.fury.io/py/gitlas)  ![GitHub](https://img.shields.io/github/license/Abhi-1U/gitlas)
 The minimalist Git Log Statistics library
 
 ## Meta Data of Git
