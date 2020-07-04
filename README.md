@@ -1,6 +1,5 @@
-# GitLas :Git Log Statistics [![Build Status](https://travis-ci.org/Abhi-1U/gitlas.svg?branch=master)](https://travis-ci.org/Abhi-1U/gitlas) [![PyPI version](https://badge.fury.io/py/gitlas.svg)](https://badge.fury.io/py/gitlas)  ![GitHub](https://img.shields.io/github/license/Abhi-1U/gitlas)
-The minimalist Git Log Statistics library
-
+# GitLas :The minimalist Git Log Statistics library
+ [![Build Status](https://travis-ci.org/Abhi-1U/gitlas.svg?branch=master)](https://travis-ci.org/Abhi-1U/gitlas) [![PyPI version](https://badge.fury.io/py/gitlas.svg)](https://badge.fury.io/py/gitlas)  ![GitHub](https://img.shields.io/github/license/Abhi-1U/gitlas) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/gitlas?color=red)
 ## Meta Data of Git
 Often times we have a ton of Meta Data ,but we really don't have much of tools to make useful
 analysis from it.
@@ -36,3 +35,5 @@ or pip3 in some systems
 ```
 $ pip3 install gitlas
 ```
+## Usage 
+This library is designed to be used alongside data analysis and visualization libraries. additionaly you can also export git log data and or stat reports in JSON format.

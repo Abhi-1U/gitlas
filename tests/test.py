@@ -1,3 +1,1 @@
-import pytest
-from gitlas import Log 
-
+from gitlas import Log
