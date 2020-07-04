@@ -1,0 +1,931 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.5">
+    
+    
+      
+        <title>Quick Tutorial - gitlas</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.df84b5fe.min.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/palette.8435c73a.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700%7CUbuntu+Mono&display=fallback">
+        <style>body,input{font-family:"Ubuntu",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Ubuntu Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="white" data-md-color-accent="orange">
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#a-short-gitlas-tutorial" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="gitlas" class="md-header-nav__button md-logo" aria-label="gitlas">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            gitlas
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Quick Tutorial
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+          
+
+  
+
+<nav class="md-tabs md-tabs--active" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href=".." class="md-tabs__link">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="./" class="md-tabs__link md-tabs__link--active">
+          User Guide
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../Changelog/" class="md-tabs__link">
+          Releases
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="gitlas" class="md-nav__button md-logo" aria-label="gitlas">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    gitlas
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      User Guide
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="User Guide" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        User Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Quick Tutorial
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Quick Tutorial" class="md-nav__link md-nav__link--active">
+      Quick Tutorial
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#about-gitlas" class="md-nav__link">
+    About gitlas :
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pre-steps" class="md-nav__link">
+    Pre steps:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lets-begin-a-brief-tutorial" class="md-nav__link">
+    Lets Begin a brief tutorial
+  </a>
+  
+    <nav class="md-nav" aria-label="Lets Begin a brief tutorial">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-import-the-essential-libraries-note-gitlas-is-a-standalone-library" class="md-nav__link">
+    1. import the essential libraries (note: gitlas is a standalone library)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-a-log-object-with-the-filename-and-the-file-source-type-to-initialize-the-constructor" class="md-nav__link">
+    2. Create a Log Object with the filename and the file source type to initialize the constructor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#to-find-the-total-duration-of-log-use-logactivedevelopmentduration-method" class="md-nav__link">
+    To find the total duration of log use Log.activeDevelopmentDuration() method
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-an-overview-of-the-statistics-in-a-given-year" class="md-nav__link">
+    3. An overview of the statistics in a given year
+  </a>
+  
+    <nav class="md-nav" aria-label="3. An overview of the statistics in a given year">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generating-yearly-statistics-using-logyearstats-method" class="md-nav__link">
+    Generating yearly statistics using Log.yearStats() method
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-viewing-day-wise-statistics-and-plotting-it-using-matplotlib" class="md-nav__link">
+    4. Viewing day wise statistics and plotting it using Matplotlib
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Viewing day wise statistics and plotting it using Matplotlib">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#daywise-statistics-work-in-a-different-manner-and-will-can-be-used-to-obtain-certain-stats-use-logspecificweekdaystats" class="md-nav__link">
+    daywise statistics work in a different manner and will can be used to obtain certain stats use Log.specificWeekDayStats()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-lets-compare-which-author-contributes-the-most-and-visualize-a-pie-chart" class="md-nav__link">
+    5. Lets compare which Author Contributes the most and visualize a pie chart
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Lets compare which Author Contributes the most and visualize a pie chart">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#author-wise-data-is-useful-to-see-the-stats-of-contributions-from-different-contributorsauthors-using-logauthorstats" class="md-nav__link">
+    Author wise data is useful to see the stats of contributions from different contributors/Authors using Log.authorStats()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-lets-look-at-the-activities-of-may-month-in-a-tabular-format-using-pandas" class="md-nav__link">
+    6. Lets Look at the activities of May Month in a tabular format using pandas
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Lets Look at the activities of May Month in a tabular format using pandas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#specific-month-reports-can-be-accessed-by-logsinglemonthstats" class="md-nav__link">
+    specific Month reports can be accessed by Log.singleMonthStats()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Releases
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Releases" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Releases
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Changelog/" title="Changelog" class="md-nav__link">
+      Changelog
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#about-gitlas" class="md-nav__link">
+    About gitlas :
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pre-steps" class="md-nav__link">
+    Pre steps:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lets-begin-a-brief-tutorial" class="md-nav__link">
+    Lets Begin a brief tutorial
+  </a>
+  
+    <nav class="md-nav" aria-label="Lets Begin a brief tutorial">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-import-the-essential-libraries-note-gitlas-is-a-standalone-library" class="md-nav__link">
+    1. import the essential libraries (note: gitlas is a standalone library)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-a-log-object-with-the-filename-and-the-file-source-type-to-initialize-the-constructor" class="md-nav__link">
+    2. Create a Log Object with the filename and the file source type to initialize the constructor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#to-find-the-total-duration-of-log-use-logactivedevelopmentduration-method" class="md-nav__link">
+    To find the total duration of log use Log.activeDevelopmentDuration() method
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-an-overview-of-the-statistics-in-a-given-year" class="md-nav__link">
+    3. An overview of the statistics in a given year
+  </a>
+  
+    <nav class="md-nav" aria-label="3. An overview of the statistics in a given year">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generating-yearly-statistics-using-logyearstats-method" class="md-nav__link">
+    Generating yearly statistics using Log.yearStats() method
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-viewing-day-wise-statistics-and-plotting-it-using-matplotlib" class="md-nav__link">
+    4. Viewing day wise statistics and plotting it using Matplotlib
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Viewing day wise statistics and plotting it using Matplotlib">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#daywise-statistics-work-in-a-different-manner-and-will-can-be-used-to-obtain-certain-stats-use-logspecificweekdaystats" class="md-nav__link">
+    daywise statistics work in a different manner and will can be used to obtain certain stats use Log.specificWeekDayStats()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-lets-compare-which-author-contributes-the-most-and-visualize-a-pie-chart" class="md-nav__link">
+    5. Lets compare which Author Contributes the most and visualize a pie chart
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Lets compare which Author Contributes the most and visualize a pie chart">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#author-wise-data-is-useful-to-see-the-stats-of-contributions-from-different-contributorsauthors-using-logauthorstats" class="md-nav__link">
+    Author wise data is useful to see the stats of contributions from different contributors/Authors using Log.authorStats()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-lets-look-at-the-activities-of-may-month-in-a-tabular-format-using-pandas" class="md-nav__link">
+    6. Lets Look at the activities of May Month in a tabular format using pandas
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Lets Look at the activities of May Month in a tabular format using pandas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#specific-month-reports-can-be-accessed-by-logsinglemonthstats" class="md-nav__link">
+    specific Month reports can be accessed by Log.singleMonthStats()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="a-short-gitlas-tutorial">A short gitlas Tutorial</h1>
+<h2 id="about-gitlas">About gitlas :</h2>
+<p>gitlas is a library aimed at analysts/developers who want to get more out of git logs. Currently these git logs have potential to potray more statistics.<br />
+gitlas tries to make more out of the git log data and one of the simple ways is to convert the existing data in JSON objects which can be conviniently stored and utilized for data analysis and visualizations.</p>
+<h2 id="pre-steps">Pre steps:</h2>
+<ul>
+<li>get a copy of gitlog data in a text file using the command</li>
+</ul>
+<div class="highlight"><pre><span></span><code>git log &gt;gitlog.txt
+</code></pre></div>
+
+<ul>
+<li>or use clip to copy the contents to cliboard </li>
+</ul>
+<div class="highlight"><pre><span></span><code>git log &gt; clip
+</code></pre></div>
+
+<ul>
+<li>Install gitlas and other libraries(if not installed or you intend to use)</li>
+</ul>
+<div class="highlight"><pre><span></span><code>pip install gitlas
+</code></pre></div>
+
+<h2 id="lets-begin-a-brief-tutorial">Lets Begin a brief tutorial</h2>
+<h3 id="1-import-the-essential-libraries-note-gitlas-is-a-standalone-library">1. import the essential libraries (note: gitlas is a standalone library)</h3>
+<p>In:
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">gitlas</span> <span class="kn">import</span> <span class="n">Log</span><span class="p">,</span><span class="n">JSONExport</span> 
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</code></pre></div></p>
+<h3 id="2-create-a-log-object-with-the-filename-and-the-file-source-type-to-initialize-the-constructor">2. Create a Log Object with the filename and the file source type to initialize the constructor</h3>
+<p>In:
+<div class="highlight"><pre><span></span><code><span class="n">data</span><span class="o">=</span><span class="n">Log</span><span class="p">(</span><span class="s2">&quot;gitlog.txt&quot;</span><span class="p">,</span><span class="s2">&quot;git&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<p>total merge counts can be calculated using <code>Log.mergeCounts()</code> method </p>
+<p>In:
+<div class="highlight"><pre><span></span><code><span class="n">data</span><span class="o">.</span><span class="n">mergeCounts</span><span class="p">()</span>
+</code></pre></div>
+Out:</p>
+<div class="codehilite"><pre><span></span><code><span class="err">3</span>
+</code></pre></div>
+
+
+<p>Total Commit counts can be calculated using <code>Log.commitCounts()</code> method </p>
+<p>In:
+<div class="highlight"><pre><span></span><code><span class="n">data</span><span class="o">.</span><span class="n">commitCounts</span><span class="p">()</span>
+</code></pre></div>
+Out:</p>
+<div class="codehilite"><pre><span></span><code><span class="err">26</span>
+</code></pre></div>
+
+
+<h3 id="to-find-the-total-duration-of-log-use-logactivedevelopmentduration-method">To find the total duration of log use <code>Log.activeDevelopmentDuration()</code> method</h3>
+<p>In:
+<div class="highlight"><pre><span></span><code><span class="n">data</span><span class="o">.</span><span class="n">activeDevelopmentDuration</span><span class="p">()</span>
+</code></pre></div>
+Out:</p>
+<div class="codehilite"><pre><span></span><code><span class="err">&#39;7 days, 12:30:36&#39;</span>
+</code></pre></div>
+
+
+<h2 id="3-an-overview-of-the-statistics-in-a-given-year">3. An overview of the statistics in a given year</h2>
+<h3 id="generating-yearly-statistics-using-logyearstats-method">Generating yearly statistics using <code>Log.yearStats()</code> method</h3>
+<p>This metric will return a dictionary of the stats</p>
+<p>In:
+<div class="highlight"><pre><span></span><code><span class="n">data</span><span class="o">.</span><span class="n">yearStats</span><span class="p">(</span><span class="mi">2020</span><span class="p">)</span>
+</code></pre></div>
+Out:</p>
+<div class="codehilite"><pre><span></span><code><span class="err">{&#39;Commits&#39;: 26,</span>
+<span class="err"> &#39;Mergers&#39;: 3,</span>
+<span class="err"> &#39;ActiveMonths&#39;: [&#39;Jun&#39;, &#39;May&#39;],</span>
+<span class="err"> &#39;MonthlyCommitReports&#39;: {&#39;Jun&#39;: 8, &#39;May&#39;: 18},</span>
+<span class="err"> &#39;MonthlyMergerReports&#39;: {&#39;Jun&#39;: 0, &#39;May&#39;: 3}}</span>
+</code></pre></div>
+
+
+<h2 id="4-viewing-day-wise-statistics-and-plotting-it-using-matplotlib">4. Viewing day wise statistics and plotting it using Matplotlib</h2>
+<h3 id="daywise-statistics-work-in-a-different-manner-and-will-can-be-used-to-obtain-certain-stats-use-logspecificweekdaystats">daywise statistics work in a different manner and will can be used to obtain certain stats use <code>Log.specificWeekDayStats()</code></h3>
+<p>This kind of statistic can be useful for finding the day with most commits and merges for your project.</p>
+<p>In:
+<div class="highlight"><pre><span></span><code><span class="n">data</span><span class="o">.</span><span class="n">specificWeekDayStats</span><span class="p">(</span><span class="s2">&quot;Sun&quot;</span><span class="p">)</span> <span class="c1">#for a single day</span>
+</code></pre></div>
+Out:</p>
+<div class="codehilite"><pre><span></span><code><span class="err">{&#39;Commits&#39;: 0, &#39;Mergers&#39;: 0}</span>
+</code></pre></div>
+
+
+<p>In:
+<div class="highlight"><pre><span></span><code><span class="n">days</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Mon&quot;</span><span class="p">,</span><span class="s2">&quot;Tue&quot;</span><span class="p">,</span><span class="s2">&quot;Wed&quot;</span><span class="p">,</span><span class="s2">&quot;Thu&quot;</span><span class="p">,</span><span class="s2">&quot;Fri&quot;</span><span class="p">,</span><span class="s2">&quot;Sat&quot;</span><span class="p">,</span><span class="s2">&quot;Sun&quot;</span><span class="p">]</span>
+</code></pre></div></p>
+<p>In:
+<div class="highlight"><pre><span></span><code><span class="n">day_wise_report</span><span class="o">=</span><span class="p">{}</span>
+</code></pre></div></p>
+<p>In:
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">days</span><span class="p">:</span>
+    <span class="n">day_wise_report</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">specificWeekDayStats</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</code></pre></div></p>
+<p>In:
+<div class="highlight"><pre><span></span><code><span class="n">day_wise_report</span> <span class="c1"># Report of all days in a week</span>
+</code></pre></div>
+Out:</p>
+<div class="codehilite"><pre><span></span><code><span class="err">{&#39;Mon&#39;: {&#39;Commits&#39;: 3, &#39;Mergers&#39;: 0},</span>
+<span class="err"> &#39;Tue&#39;: {&#39;Commits&#39;: 4, &#39;Mergers&#39;: 0},</span>
+<span class="err"> &#39;Wed&#39;: {&#39;Commits&#39;: 7, &#39;Mergers&#39;: 0},</span>
+<span class="err"> &#39;Thu&#39;: {&#39;Commits&#39;: 11, &#39;Mergers&#39;: 3},</span>
+<span class="err"> &#39;Fri&#39;: {&#39;Commits&#39;: 0, &#39;Mergers&#39;: 0},</span>
+<span class="err"> &#39;Sat&#39;: {&#39;Commits&#39;: 1, &#39;Mergers&#39;: 0},</span>
+<span class="err"> &#39;Sun&#39;: {&#39;Commits&#39;: 0, &#39;Mergers&#39;: 0}}</span>
+</code></pre></div>
+
+
+<p>In:
+<div class="highlight"><pre><span></span><code><span class="n">dates</span><span class="o">=</span><span class="n">day_wise_report</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<span class="n">commitvals</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">mergevals</span><span class="o">=</span><span class="p">[]</span>
+</code></pre></div></p>
+<p>In:
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">days</span><span class="p">:</span>
+    <span class="n">commitvals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">day_wise_report</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;Commits&quot;</span><span class="p">])</span>
+    <span class="n">mergevals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">day_wise_report</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;Mergers&quot;</span><span class="p">])</span>
+</code></pre></div></p>
+<p>In:
+<div class="highlight"><pre><span></span><code><span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span> <span class="c1">#Plotting Bar Graphs</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">dates</span><span class="p">,</span><span class="n">commitvals</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">dates</span><span class="p">,</span><span class="n">mergevals</span><span class="p">)</span>
+</code></pre></div>
+Out:</p>
+<div class="codehilite"><pre><span></span><code><span class="err">&lt;BarContainer object of 7 artists&gt;</span>
+</code></pre></div>
+
+
+<p><img alt="png" src="../img/output_22_1.png" /></p>
+<h2 id="5-lets-compare-which-author-contributes-the-most-and-visualize-a-pie-chart">5. Lets compare which Author Contributes the most and visualize a pie chart</h2>
+<h3 id="author-wise-data-is-useful-to-see-the-stats-of-contributions-from-different-contributorsauthors-using-logauthorstats">Author wise data is useful to see the stats of contributions from different contributors/Authors using <code>Log.authorStats()</code></h3>
+<p>In:
+<div class="highlight"><pre><span></span><code><span class="n">author_wise_data</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">authorStats</span><span class="p">()</span>
+<span class="n">author_report</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">names</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">commits</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">merges</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">explode</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.25</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">author_wise_data</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+    <span class="n">names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">])</span>
+    <span class="n">commits</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="s2">&quot;Commits&quot;</span><span class="p">])</span>
+    <span class="n">merges</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="s2">&quot;Mergers&quot;</span><span class="p">])</span>
+</code></pre></div></p>
+<p>In:
+<div class="highlight"><pre><span></span><code><span class="n">fig</span><span class="p">,</span><span class="n">bx</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">bx</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">commits</span><span class="p">,</span><span class="n">explode</span><span class="o">=</span><span class="n">explode</span><span class="p">,</span><span class="n">labels</span><span class="o">=</span><span class="n">names</span><span class="p">,</span><span class="n">shadow</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">startangle</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+</code></pre></div>
+Out:</p>
+<div class="codehilite"><pre><span></span><code><span class="err">([&lt;matplotlib.patches.Wedge at 0x7f25985bafd0&gt;,</span>
+<span class="err">  &lt;matplotlib.patches.Wedge at 0x7f25985486d8&gt;],</span>
+<span class="err"> [Text(-0.8233618545088074, -0.7294348884854751, &#39;Abhi-1U&#39;),</span>
+<span class="err">  Text(1.0104895487153542, 0.8952155449594471, &#39;AbhishekUlayil&#39;)])</span>
+</code></pre></div>
+
+
+<p><img alt="png" src="../img/output_25_1.png" /></p>
+<h2 id="6-lets-look-at-the-activities-of-may-month-in-a-tabular-format-using-pandas">6. Lets Look at the activities of May Month in a tabular format using pandas</h2>
+<h3 id="specific-month-reports-can-be-accessed-by-logsinglemonthstats">specific Month reports can be accessed by <code>Log.singleMonthStats()</code></h3>
+<p>This method will return few values of the specific month in the year provided</p>
+<p>In:
+<div class="highlight"><pre><span></span><code><span class="n">MayData</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">singleMonthStats</span><span class="p">(</span><span class="s2">&quot;May&quot;</span><span class="p">,</span><span class="mi">2020</span><span class="p">)</span>
+<span class="n">MayData</span>
+</code></pre></div>
+Out:</p>
+<div class="codehilite"><pre><span></span><code><span class="err">{&#39;Commits&#39;: 18, &#39;Mergers&#39;: 3}</span>
+</code></pre></div>
+
+
+<p>In:
+<div class="highlight"><pre><span></span><code><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">MayData</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Commits&quot;</span><span class="p">,</span><span class="s2">&quot;Merges&quot;</span><span class="p">],</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;May&#39;</span><span class="p">])</span>
+</code></pre></div>
+Out:</p>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>May</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Commits</th>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>Merges</th>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h1 id="7-exporting-log-files-meta-data-as-json-format">7. Exporting Log files /Meta Data as JSON Format</h1>
+<h2 id="gitlasjsonexport-is-built-for-that"><code>gitlas.JSONExport()</code> is built for that</h2>
+<p>In:
+<div class="highlight"><pre><span></span><code><span class="n">JSONExport</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="s2">&quot;GitExport.json&quot;</span><span class="p">)</span>
+</code></pre></div>
+Out:</p>
+<div class="codehilite"><pre><span></span><code><span class="err">Export Of Object Data Successfull!</span>
+</code></pre></div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href=".." title="Home" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Home
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../Changelog/" title="Changelog" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Changelog
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.83fe6e3c.min.js"></script>
+      <script src="../assets/javascripts/bundle.7e1cb91c.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: ["instant", "tabs"],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.37585f48.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
