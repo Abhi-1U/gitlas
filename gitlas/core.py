@@ -3,12 +3,12 @@
 
 """
 
- Name        : GitLas/core\n
+ Name        : gitlas/core\n
  Author      : Abhi-1U <https://github.com/Abhi-1U> \n
  Description : A core library of gitlas\n
  Encoding    : UTF-8\n
- Version     : 0.2.03\n
- Build       : 0.2.03/05-07-2020\n
+ Version     : 0.2.4\n
+ Build       : 0.2.4/06-09-2020\n
 
 """
 
@@ -42,6 +42,7 @@
 import re
 import json
 import datetime as dt
+
 # *---------------------------------------------------------------------------*
 
 
@@ -50,12 +51,26 @@ import datetime as dt
 # * (eg. 'Jan','Feb') into the corresponding month number with
 # * leading zeros wherever required.
 # *
-def monthnumber(monthShortHand):
+def monthnumberSwap(monthShortHand):
     """Generates the month number based on the shorhand name of the month.
     """
-    monthmanager = {"Jan": "01", "Feb": "02", "Mar": "03", "Apr": "04", "May": "05",
-                    "Jun": "06", "Jul": "07", "Aug": "08", "Sep": "09", "Oct": "10", "Nov": "11", "Dec": "12"}
+    monthmanager = {
+        "Jan": "01",
+        "Feb": "02",
+        "Mar": "03",
+        "Apr": "04",
+        "May": "05",
+        "Jun": "06",
+        "Jul": "07",
+        "Aug": "08",
+        "Sep": "09",
+        "Oct": "10",
+        "Nov": "11",
+        "Dec": "12",
+    }
     return monthmanager[monthShortHand]
+
+
 # *---------------------------------------------------------------------------*
 
 
@@ -68,25 +83,29 @@ def datetimeConvertor(date, month, year, time, timezone):
     Converts raw date/time data into an object of datetime class.
     """
 
-    Date = date+"/"+monthnumber(month)+"/"+year
-    Time = time+" "+timezone
-    return dt.datetime.strptime(Date+" "+Time, '%d/%m/%Y %H:%M:%S %z')
+    Date = date + "/" + monthnumberSwap(month) + "/" + year
+    Time = time + " " + timezone
+    return dt.datetime.strptime(Date + " " + Time, "%d/%m/%Y %H:%M:%S %z")
+
+
 # *---------------------------------------------------------------------------*
 
 
 # *---------------------------------------------------------------------------*
 # * Join String method is applicable in scenarios where a string needs to be
 # * appended with a list/tuple of strings.
-def joinstring(str1, list):
+def joinString(str1, list):
     """This method joins a list of strings to a input string.\n
         returns a string object.
     """
 
     for i in list:
         str1 += i
-        str1+" "
-    str1+" "
+        str1 + " "
+    str1 + " "
     return str1
+
+
 # *---------------------------------------------------------------------------*
 
 
@@ -95,7 +114,6 @@ def joinstring(str1, list):
 # * This class is basically a data Object which serves as cleaner
 # * implementation to store the commit data in a log full of commits.
 class Commit:
-
     def __init__(self, hashid):
         self.author = None
         self.authorEmail = None
@@ -120,6 +138,8 @@ class Commit:
 
     def __delattr__(self, name):
         del self.__dict__[name]
+
+
 # *---------------------------------------------------------------------------*
 
 
@@ -155,29 +175,29 @@ class Log:
         self.type = type
         self.filename = file
         i = -1
-        with open(file, 'r') as logfile:
+        with open(file, "r") as logfile:
             strings = logfile.readlines()
             for line in strings:
                 data = line.split()
-                if((len(data)is not 0)):
+                if len(data) is not 0:
                     newcommit = re.match("^commit", data[0])
                     newauthor = re.match("^Author:", data[0])
                     newdate = re.match("^Date:", data[0])
                     newmerge = re.match("^Merge:", data[0])
-                    if(newcommit)and (len(data) == 2):
+                    if (newcommit) and (len(data) == 2):
                         i += 1
                         ncommit = Commit(hashid=data[1])
                         self.commits.append(ncommit)
                         continue
-                    if(newmerge):
+                    if newmerge:
                         self.commits[i].isMerger = True
                         setattr(self.commits[i], "Mergerhash1", data[1])
                         setattr(self.commits[i], "Mergerhash2", data[2])
-                    if(newauthor):
-                        self.commits[i].author = joinstring("", data[1:-1])
+                    if newauthor:
+                        self.commits[i].author = joinString("", data[1:-1])
                         self.commits[i].authorEmail = data[-1]
                         continue
-                    if(newdate):
+                    if newdate:
                         self.commits[i].day = data[1]
                         self.commits[i].month = data[2]
                         self.commits[i].date = data[3]
@@ -188,10 +208,13 @@ class Log:
 
                     else:
                         text = self.commits[i].comment
-                        final = joinstring(text, data)
+                        final = joinString(text, data)
                         self.commits[i].comment = final
                 else:
                     pass
+
+    # *-----------------------------------------------------------------------*
+
     # *-----------------------------------------------------------------------*
     # * These methods in this block deal with the properties of the Log
     # * Objects and hence make it easy to set/get/del attributes.
@@ -206,17 +229,34 @@ class Log:
 
     def __delattr__(self, name):
         del self.__dict__[name]
+
     # *-----------------------------------------------------------------------*
 
     # *-----------------------------------------------------------------------*
     # * These Methods in this block manage the print statement and print
     # * something about the source of Log object and its type.
     def __str__(self):
-        return "Log Object for file: "+self.filename+" of Type: "+self.type
+        return "Log Object for file: " + self.filename + " of Type: " + self.type
 
     def __repr__(self):
         pass
+
     __str__ == __repr__
+    # *-----------------------------------------------------------------------*
+
+    # *-----------------------------------------------------------------------*
+    # * merge counts return the total merges made in the logs
+    def mergeCounts(self):
+        """
+        Total merges in the Git Log
+        """
+
+        mergecounts = 0
+        for i in self.commits:
+            if i.isMerger:
+                mergecounts += 1
+        return mergecounts
+
     # *-----------------------------------------------------------------------*
 
     # *-----------------------------------------------------------------------*
@@ -229,6 +269,7 @@ class Log:
 
         setattr(self, "TotalCommits", len(self.commits))
         return len(self.commits)
+
     # *-----------------------------------------------------------------------*
 
     # *-----------------------------------------------------------------------*
@@ -247,17 +288,18 @@ class Log:
         commitcount = 0
         mergerscount = 0
         for i in self.commits:
-            if(i.day == dayname) and (i.isMerger):
+            if (i.day == dayname) and (i.isMerger):
                 mergerscount += 1
                 commitcount += 1
                 continue
-            if(i.day == dayname):
+            if i.day == dayname:
                 commitcount += 1
                 continue
         finalreport = {}
         finalreport["Commits"] = commitcount
         finalreport["Mergers"] = mergerscount
         return finalreport
+
     # *-----------------------------------------------------------------------*
 
     # *-----------------------------------------------------------------------*
@@ -275,11 +317,22 @@ class Log:
         finalObj = self.commits[0]
         initialObj = self.commits[-1]
         finaldate = datetimeConvertor(
-            finalObj.date, finalObj.month, finalObj.year, finalObj.time, finalObj.timezone)
+            finalObj.date,
+            finalObj.month,
+            finalObj.year,
+            finalObj.time,
+            finalObj.timezone,
+        )
         initialdate = datetimeConvertor(
-            initialObj.date, initialObj.month, initialObj.year, initialObj.time, initialObj.timezone)
-        timedelta = finaldate-initialdate
+            initialObj.date,
+            initialObj.month,
+            initialObj.year,
+            initialObj.time,
+            initialObj.timezone,
+        )
+        timedelta = finaldate - initialdate
         return str(timedelta)
+
     # *-----------------------------------------------------------------------*
 
     # *-----------------------------------------------------------------------*
@@ -290,22 +343,23 @@ class Log:
         Provides commit/merge counts of a specific month of a year.
         """
 
-        if(not isinstance(year, str)):
+        if not isinstance(year, str):
             year = str(year)
         commitcount = 0
         mergerscount = 0
         for i in self.commits:
-            if(i.month == month) and (i.year == year) and (i.isMerger):
+            if (i.month == month) and (i.year == year) and (i.isMerger):
                 mergerscount += 1
                 commitcount += 1
                 continue
-            if(i.month == month) and (i.year == year):
+            if (i.month == month) and (i.year == year):
                 commitcount += 1
                 continue
         finalreport = {}
         finalreport["Commits"] = commitcount
         finalreport["Mergers"] = mergerscount
         return finalreport
+
     # *-----------------------------------------------------------------------*
 
     # *-----------------------------------------------------------------------*
@@ -318,7 +372,7 @@ class Log:
         also Highlights the active months and total Counts.
         """
 
-        if(not isinstance(year, str)):
+        if not isinstance(year, str):
             year = str(year)
         commitcount = 0
         mergerscount = 0
@@ -326,22 +380,22 @@ class Log:
         monthlymergerreport = {}
         months = []
         for i in self.commits:
-            if(i.month not in months)and (i.year == year):
-                if(i.year == year) and (i.isMerger):
+            if (i.month not in months) and (i.year == year):
+                if (i.year == year) and (i.isMerger):
                     mergerscount += 1
                     commitcount += 1
                     months.append(i.month)
                     monthlycommitreport[i.month] = 1
                     monthlymergerreport[i.month] = 1
                     continue
-                if(i.year == year):
+                if i.year == year:
                     commitcount += 1
                     months.append(i.month)
                     monthlycommitreport[i.month] = 1
                     monthlymergerreport[i.month] = 0
                     continue
             else:
-                if(i.year == year) and (i.isMerger):
+                if (i.year == year) and (i.isMerger):
                     mergerscount += 1
                     commitcount += 1
                     counts = monthlycommitreport[i.month]
@@ -351,7 +405,7 @@ class Log:
                     monthlycommitreport[i.month] = counts
                     monthlymergerreport[i.month] = mergers
                     continue
-                if(i.year == year):
+                if i.year == year:
                     commitcount += 1
                     counts = monthlycommitreport[i.month]
                     counts += 1
@@ -364,6 +418,7 @@ class Log:
         finalreport["MonthlyCommitReports"] = monthlycommitreport
         finalreport["MonthlyMergerReports"] = monthlymergerreport
         return finalreport
+
     # *-----------------------------------------------------------------------*
 
     # *-----------------------------------------------------------------------*
@@ -380,11 +435,11 @@ class Log:
         authorcommitreport = {}
         authormergerreport = {}
         for i in self.commits:
-            if(i.author not in authors):
+            if i.author not in authors:
                 authors.append(i.author)
                 authorsEmail.append(i.authorEmail)
                 authorcommitreport[i.author] = 1
-                if(i.isMerger):
+                if i.isMerger:
                     authormergerreport[i.author] = 1
                 else:
                     authormergerreport[i.author] = 0
@@ -393,7 +448,7 @@ class Log:
                 count = authorcommitreport[i.author]
                 count += 1
                 authorcommitreport[i.author] = count
-                if(i.isMerger):
+                if i.isMerger:
                     mergers = authormergerreport[i.author]
                     mergers += 1
                     authormergerreport[i.author] = mergers
@@ -404,24 +459,10 @@ class Log:
             authordata["Email"] = authorsEmail[i]
             authordata["Commits"] = authorcommitreport[authors[i]]
             authordata["Mergers"] = authormergerreport[authors[i]]
-            finalreport["Author-"+str(i+1)] = authordata
+            finalreport["Author-" + str(i + 1)] = authordata
         return finalreport
-    # *-----------------------------------------------------------------------*
 
     # *-----------------------------------------------------------------------*
-    # * merge counts return the total merges made in the logs
-    def mergeCounts(self):
-        """
-        Total merges in the Git Log
-        """
-
-        mergecounts = 0
-        for i in self.commits:
-            if(i.isMerger):
-                mergecounts += 1
-        return mergecounts
-    # *-----------------------------------------------------------------------*
-
 
 
 # *---------------------------------------------------------------------------*
@@ -433,15 +474,17 @@ def JSONEncoder(object):
     However do note that only Commit/Log objects are supported.
     """
 
-    if(isinstance(object, Log)):
+    if isinstance(object, Log):
         commit = {}
         for i in range(len(object.commits)):
-            commit["commit"+str(i)] = object.commits[i].__dict__
+            commit["commit" + str(i)] = object.commits[i].__dict__
         return commit
-    if(isinstance(object, dict)):
+    if isinstance(object, dict):
         return object
     else:
         return object.__dict__
+
+
 # *---------------------------------------------------------------------------*
 
 
@@ -457,12 +500,14 @@ def JSONExport(Object, filename):
         json.dump(data, outfile)
         outfile.close()
     print("Export Of Object Data Successfull!")
+
+
 # *---------------------------------------------------------------------------*
 
 
 # *---------------------------------------------------------------------------*
 # * This method is like a do it all "give me results now!" type .
-def AnalyzeDataOverall(logobject, *args):
+def analyzeDataOverall(logobject, *args):
     """
     The Default year considered is the current year.
     To give a specific year as an input just pass it in parameter.
@@ -476,7 +521,7 @@ def AnalyzeDataOverall(logobject, *args):
     """
 
     year = dt.datetime.now().year
-    if(len(args) != 0):
+    if len(args) != 0:
         for i in args:
             year = i
     authorStats = logobject.authorStats()
@@ -488,9 +533,11 @@ def AnalyzeDataOverall(logobject, *args):
     finalreport["Commits"] = totalCommits
     finalreport["merges"] = mergecounts
     finalreport["ActiveDevelopmentDuration"] = totalduration
-    finalreport['AuthorWiseData'] = authorStats
-    finalreport['yearlyReport-'+str(year)] = yearStats
+    finalreport["AuthorWiseData"] = authorStats
+    finalreport["yearlyReport-" + str(year)] = yearStats
     return finalreport
+
+
 # *---------------------------------------------------------------------------*
 
 # *---------------------------------------------------------------------------*

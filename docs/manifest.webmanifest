@@ -1,0 +1,16 @@
+{
+    "name": "gitlas",
+    "short_name": "gitlas",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#f00",
+    "description": "Documentation for gitlas",
+    "icons":[{
+    "src": "img/gitlas-128.png",
+    "sizes": "128x128",
+    "type": "image/png"},
+    {
+    "src": "img/gitlas-383.png",
+    "sizes": "383x383",
+    "type": "image/png"}]
+}
